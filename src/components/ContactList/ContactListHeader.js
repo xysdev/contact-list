@@ -4,6 +4,7 @@ const ContactListHeader = ({ contacts }) => {
     return (
         <ul className="contact-list-header">
             {config.tabs.map((tab) => {
+                tab = tab.toLocaleLowerCase();
                 return (
                     <li className="contact-list-header__contact-list-header-item">
                         <span>

@@ -11,7 +11,7 @@ const ContactList = () => {
     }, []);
     return (
         <div className="contact-list-container">
-            <ContactListHeader contacts={contacts} />
+            <ContactListHeader contacts={contacts} />   
         </div>
     );
 };
