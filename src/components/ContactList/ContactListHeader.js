@@ -1,15 +1,22 @@
 import { config } from '../../config/config';
 
-const ContactListHeader = ({ contacts }) => {
+const ContactListHeader = ({ contacts, selectCategory }) => {
     return (
         <ul className="contact-list-header">
             {config.tabs.map((tab) => {
                 tab = tab.toLocaleLowerCase();
+                const availableContacts = contacts[tab] ? contacts[tab].length : 0;
                 return (
-                    <li className="contact-list-header__contact-list-header-item">
+                    <li
+                        key={tab}
+                        className={`contact-list-header__item ${availableContacts <= 0 ? 'contact-list-header__item--disabled' : ''}`}
+                        onClick={() => {
+                            selectCategory(contacts[tab] ? contacts[tab] : []);
+                        }}
+                    >
                         <span>
                             {tab}
-                            <sub>{contacts[tab] ? contacts[tab].length : 0}</sub>
+                            <sub>{availableContacts}</sub>
                         </span>
                     </li>
                 );
