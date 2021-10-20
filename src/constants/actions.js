@@ -1,5 +1,6 @@
 export const ACTIONS = {
-    CONTACTS:{
+    CONTACTS: {
         SET_CONTACTS: 'SET_CONTACTS',
-    }
+        SET_SELECTED_TAB: 'SET_SELECTED_TAB',
+    },
 };

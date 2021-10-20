@@ -1,6 +1,6 @@
 import { config } from '../../config/config';
 
-const ContactListHeader = ({ contacts, selectCategory }) => {
+const ContactListHeader = ({ contacts, selectTab                                                                       , selectedTab }) => {
     return (
         <ul className="contact-list-header">
             {config.tabs.map((tab) => {
@@ -9,9 +9,11 @@ const ContactListHeader = ({ contacts, selectCategory }) => {
                 return (
                     <li
                         key={tab}
-                        className={`contact-list-header__item ${availableContacts <= 0 ? 'contact-list-header__item--disabled' : ''}`}
+                        className={`contact-list-header__item ${availableContacts < 1 ? 'contact-list-header__item--disabled' : ''}`}
                         onClick={() => {
-                            selectCategory(contacts[tab] ? contacts[tab] : []);
+                            if(availableContacts > 0){
+                                selectTab(tab);
+                            }
                         }}
                     >
                         <span>

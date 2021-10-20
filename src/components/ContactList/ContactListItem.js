@@ -1,8 +1,12 @@
-const ContactListItem = ({contact}) => {
+import { useState } from "react";
+
+const ContactListItem = ({ contact }) => {
+    const [openModal, setOpenModal] = useState(false);
+    
     return (
         <li>
             {`${contact.name.last}, ${contact.name.first}`}
-            {/* <ContactDetail open={open} setOpen={setOpen} /> */}
+            {/* <ContactDetail open={openModal} setOpen={setOpenModal} /> */}
         </li>
     );
 };
