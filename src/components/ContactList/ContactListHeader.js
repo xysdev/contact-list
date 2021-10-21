@@ -1,24 +1,26 @@
 import { config } from '../../config/config';
 
-const ContactListHeader = ({ contacts, selectTab                                                                       , selectedTab }) => {
+const ContactListHeader = ({ contacts, selectTab, selectedTab }) => {
     return (
         <ul className="contact-list-header">
-            {config.tabs.map((tab) => {
+            {config.culture.alphabet.map((tab) => {
                 tab = tab.toLocaleLowerCase();
                 const availableContacts = contacts[tab] ? contacts[tab].length : 0;
                 return (
                     <li
                         key={tab}
-                        className={`contact-list-header__item ${availableContacts < 1 ? 'contact-list-header__item--disabled' : ''}`}
+                        className={`contact-list-header__item px-2 py-2 ${availableContacts < 1 ? 'contact-list-header__item--disabled' : ''} ${
+                            selectedTab === tab ? 'contact-list-header__item--active' : ''
+                        }`}
                         onClick={() => {
-                            if(availableContacts > 0){
+                            if (availableContacts > 0) {
                                 selectTab(tab);
                             }
                         }}
                     >
                         <span>
                             {tab}
-                            <sub>{availableContacts}</sub>
+                            <sub className="ml-2">{availableContacts}</sub>
                         </span>
                     </li>
                 );

@@ -15,17 +15,21 @@ const ContactList = () => {
         dispatch(setSelectedTab(tab));
     };
     return (
-        <div className="contact-list-container">
-            <ContactListHeader contacts={contacts} selectTab={selectTab} selectedTab={selectedTab} />
-            {pending ? (
-                <span>loading...</span>
-            ) : (
-                <ul>
-                    {contacts[selectedTab].map((contact) => {
-                        return <ContactListItem contact={contact} key={contact.id.value} />;
-                    })}
-                </ul>
-            )}
+        <div className="d-flex">
+            <div className="contact-list-container">
+                <ContactListHeader contacts={contacts} selectTab={selectTab} selectedTab={selectedTab} />
+                <div className="contact-list-body">
+                    {pending ? (
+                        <span>loading...</span>
+                    ) : (
+                        <ul className="contact-list p-4">
+                            {contacts[selectedTab].map((contact) => {
+                                return <ContactListItem contact={contact} key={contact.id.value} />;
+                            })}
+                        </ul>
+                    )}
+                </div>
+            </div>
         </div>
     );
 };

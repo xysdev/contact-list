@@ -1,0 +1,73 @@
+@mixin spacer($spacers) {
+    .mx-auto{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .px-auto{
+        padding-left: auto;
+        padding-right: auto;
+    }
+    .m-auto{
+        margin: auto;
+    }
+    .p-auto{
+        padding: auto;
+    }
+    @each $spacer-key,$sapcer-value in $spacers{
+        .m-#{$spacer-key}{
+            margin: $sapcer-value;
+        }
+        .p-#{$spacer-key}{
+            padding: $sapcer-value;
+        }
+    }
+    @each $spacer-key,$sapcer-value in $spacers{
+        .my-#{$spacer-key}{
+            margin-top: $sapcer-value;
+            margin-bottom: $sapcer-value;
+            
+        }
+        .mx-#{$spacer-key}{
+            margin-left: $sapcer-value;
+            margin-right: $sapcer-value;
+        }
+        .py-#{$spacer-key}{
+            padding-top: $sapcer-value;
+            padding-bottom: $sapcer-value;
+            
+        }
+        .px-#{$spacer-key}{
+            padding-left: $sapcer-value;
+            padding-right: $sapcer-value;
+        }
+    }
+    @each $spacer-key,$sapcer-value in $spacers{
+        .mt-#{$spacer-key}{
+            margin-top: $sapcer-value;
+        }
+        .mb-#{$spacer-key}{
+            margin-bottom: $sapcer-value;
+        }
+        .pt-#{$spacer-key}{
+            padding-top: $sapcer-value;
+        }
+        .pb-#{$spacer-key}{
+            padding-bottom: $sapcer-value;
+        }
+    }
+    @each $spacer-key,$sapcer-value in $spacers{   
+        .mr-#{$spacer-key}{
+            margin-right: $sapcer-value;
+        }
+        .ml-#{$spacer-key}{
+            margin-left: $sapcer-value;
+        }
+        .pr-#{$spacer-key}{
+            padding-right: $sapcer-value;
+        }
+        .pl-#{$spacer-key}{
+            padding-left: $sapcer-value;
+        }
+    }
+
+}

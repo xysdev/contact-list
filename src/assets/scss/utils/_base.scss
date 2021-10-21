@@ -1,0 +1,11 @@
+body {
+    font-family: $fa-font-name;
+}
+
+// display css
+.d-flex{
+    display: flex;
+    &.flex-column{
+        flex-direction: column;
+    }
+}
