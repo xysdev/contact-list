@@ -1,0 +1,50 @@
+.contact-detail {
+    display: flex;
+    border: solid 1px #e0e0e0;
+    box-shadow: inset 0px 11px 8px -10px #ccc, inset 0px -11px 8px -10px #ccc;
+    background: #eeeeee;
+    position: absolute;
+    z-index: 99;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    &__close-button {
+        position: absolute;
+        top: 10px;
+        left: 5px;
+        color: #b1b1b1;
+        cursor: pointer;
+    }
+    &__username-badge {
+        position: absolute;
+        top: -5px;
+        right: 25px;
+        z-index: 999;
+        padding: 10px 5px;
+        background: red;
+        color: white;
+        writing-mode: vertical-rl;
+        text-transform: uppercase;
+        font-size: $cl-font-h5;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+    &__Image {
+        border-radius: 100%;
+        border: solid 3px #e0e0e0;
+        margin: 0 15px;
+    }
+    &__full-name {
+        color: #b5b5b5;
+        margin: 10px 0 20px 0;
+        display: block;
+        font-size: $cl-font-h3;
+    }
+    &__info-table {
+        font-size: $cl-font-h5;
+        td {
+            padding-bottom: 7px;
+            padding-right: 10px;
+        }
+    }
+}

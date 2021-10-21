@@ -1,12 +1,10 @@
-import { useState } from "react";
+import { useState } from 'react';
+import ContactDetail from './ContactDetail/ContactDetail.';
 
-const ContactListItem = ({ contact }) => {
-    const [openModal, setOpenModal] = useState(false);
-    
+const ContactListItem = ({ contact, onClick }) => {
     return (
-        <li className="contact-list__item p-2">
+        <li className="contact-list__item p-2" onClick={onClick}>
             {`${contact.name.last}, ${contact.name.first}`}
-            {/* <ContactDetail open={openModal} setOpen={setOpenModal} /> */}
         </li>
     );
 };
