@@ -1,0 +1,10 @@
+@mixin shadow-top-inset($opacity) {
+  -webkit-box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0 , $opacity);
+  -moz-box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0 , $opacity);
+  box-shadow: inset 0 7px 9px -7px rgba(0, 0, 0 , $opacity);
+}
+@mixin shadow-bottom-inset($opacity) {
+  -webkit-box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,$opacity);
+  -moz-box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,$opacity);
+  box-shadow: inset 0 -7px 9px -7px rgba(0,0,0,$opacity);
+}
