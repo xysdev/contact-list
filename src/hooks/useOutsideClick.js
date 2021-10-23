@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export const useOutsideClick = (ref, callback) => {
   useEffect(() => {
-    // if outside of the element is clicked this function gets caleed
+    // if outside of the element is clicked this function gets called
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
         callback();
