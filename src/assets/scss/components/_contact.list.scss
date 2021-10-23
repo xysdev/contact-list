@@ -48,8 +48,12 @@
             border-bottom: dotted 2px $border-color;
             break-inside: avoid;
             padding: map-get($spacers, 2);
+            cursor: pointer;
             &:nth-last-child(1) {
                 border: none;
+            }
+            &--hover:hover {
+                background: $selected;
             }
         }
     }

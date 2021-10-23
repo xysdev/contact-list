@@ -25,7 +25,7 @@ const ContactList = () => {
     };
     const selectContact = (event, contact) => {
         setOpen(true);
-        setModalStyle({ top: event.target.offsetTop + event.target.offsetHeight, left: event.target.offsetLeft, width: '500px' });
+        setModalStyle({ top: event.target.offsetTop + event.target.offsetHeight, left: event.target.offsetLeft, width: `${event.target.offsetWidth}px` });
         setSelectedContact(contact);
     };
 
