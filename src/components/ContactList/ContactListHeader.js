@@ -1,4 +1,4 @@
-import { config } from '../../config/config';
+import { config } from 'config/config';
 
 const ContactListHeader = ({ contacts, selectTab, selectedTab }) => {
     return (
@@ -8,6 +8,7 @@ const ContactListHeader = ({ contacts, selectTab, selectedTab }) => {
                 const availableContacts = contacts[tab] ? contacts[tab].length : 0;
                 return (
                     <li
+                        data-testid="contact-list-header-item"
                         key={tab}
                         className={`contact-list-header__item px-2 py-2 ${availableContacts < 1 ? 'contact-list-header__item--disabled' : ''} ${
                             selectedTab === tab ? 'contact-list-header__item--active' : ''
