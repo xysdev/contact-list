@@ -1,14 +1,14 @@
 const common = {
     culture: {
         nat: 'US',
-        alphabet: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],
+        alphabet: process.env.REACT_APP_TABS.split(''),
     },
-    contactCount: 500,
+    contactCount: process.env.REACT_APP_NUMBER_CARDS,
 };
 const dev = {
-    SITE_NAME: 'Contact List (DEV)',
+    //Add dev specific config here
 };
 const prod = {
-    SITE_NAME: 'Contact List ',
+    //Add prod specific config here
 };
 export const config = process.env.NODE_ENV === 'production' ? { ...common, ...prod } : { ...common, ...dev };
