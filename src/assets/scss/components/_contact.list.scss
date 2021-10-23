@@ -9,10 +9,10 @@
         margin: 0;
         padding: 0;
         &__item {
-            background-color: #fff;
+            background-color: $white;
             border: solid;
             border-width: 1px;
-            border-color: #e0e0e0;
+            border-color: $border-color;
             border-radius: 10px 10px 0 0;
             cursor: pointer;
             span {
@@ -36,19 +36,18 @@
         }
     }
     .contact-list {
-        // background: #eeeeee;
         border: solid;
         border-width: 0 1px 1px 1px;
-        border-color: #e0e0e0;
+        border-color: $border-color;
         border-radius: 0 0 10px 10px;
         columns: 2;
         -webkit-columns: 2;
         -moz-columns: 2;
         padding: map-get($spacers, 4);
         &__item {
-            border-bottom: dotted 2px #e0e0e0;
+            border-bottom: dotted 2px $border-color;
             break-inside: avoid;
-            padding:map-get($spacers , 2 ) ;
+            padding: map-get($spacers, 2);
             &:nth-last-child(1) {
                 border: none;
             }
@@ -56,7 +55,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: map-get($breakpoints, md )) {
     .contact-list-container {
         width: 100%;
         height: 100vh;
@@ -74,10 +73,10 @@
                 border-width: 0px 1px 1px 0;
                 direction: ltr;
                 padding-left: 15px;
-                &--active{
-                    background: #f7f7f7;
-                    border-bottom:solid 1px #e0e0e0;
-                    border-right: 2px solid #282828;
+                &--active {
+                    background: $selected;
+                    border-bottom: solid 1px $border-color;
+                    border-right: 2px solid $dark;
                 }
                 span {
                     display: flex;
@@ -93,9 +92,9 @@
             -webkit-columns: unset;
             -moz-columns: unset;
             border: none;
-            padding:map-get($spacers, 2);
-            &__item{
-                padding:15px 10px ;
+            padding: map-get($spacers, 2);
+            &__item {
+                padding: 15px 10px;
             }
         }
     }
