@@ -9,8 +9,10 @@
         margin: 0;
         padding: 0;
         &__item {
-            background-color: #eeeeee;
-            border: solid 1px #e0e0e0;
+            background-color: #fff;
+            border: solid;
+            border-width: 1px;
+            border-color: #e0e0e0;
             border-radius: 10px 10px 0 0;
             cursor: pointer;
             span {
@@ -34,7 +36,7 @@
         }
     }
     .contact-list {
-        background: #eeeeee;
+        // background: #eeeeee;
         border: solid;
         border-width: 0 1px 1px 1px;
         border-color: #e0e0e0;
@@ -42,11 +44,58 @@
         columns: 2;
         -webkit-columns: 2;
         -moz-columns: 2;
+        padding: map-get($spacers, 4);
         &__item {
             border-bottom: dotted 2px #e0e0e0;
             break-inside: avoid;
+            padding:map-get($spacers , 2 ) ;
             &:nth-last-child(1) {
                 border: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-list-container {
+        width: 100%;
+        height: 100vh;
+        margin-top: 0;
+        flex-direction: initial;
+        .contact-list-header {
+            display: block;
+            width: 35%;
+            z-index: 99;
+            direction: rtl;
+            height: 100%;
+            overflow: scroll;
+            &__item {
+                border-radius: 0;
+                border-width: 0px 1px 1px 0;
+                direction: ltr;
+                padding-left: 15px;
+                &--active{
+                    background: #f7f7f7;
+                    border-bottom:solid 1px #e0e0e0;
+                    border-right: 2px solid #282828;
+                }
+                span {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+        .contact-list {
+            width: 65%;
+            height: 100%;
+            overflow: scroll;
+            columns: unset;
+            -webkit-columns: unset;
+            -moz-columns: unset;
+            border: none;
+            padding:map-get($spacers, 2);
+            &__item{
+                padding:15px 10px ;
             }
         }
     }

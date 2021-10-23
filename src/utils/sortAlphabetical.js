@@ -10,16 +10,7 @@ export const sortAlphabetical = (array) => {
         result[letter].push(item);
     });
     Object.keys(result).forEach((index) => {
-        result[index].sort(function (a, b) {
-
-            if (a.name.last < b.name.last) {
-                return -1;
-            }
-            if (a.name.last > b.name.last) {
-                return 1;
-            }
-            return 0;
-        });
+        result[index].sort((a, b) => (a.name.last > b.name.last ? 1 : -1));
     });
     return result;
 };

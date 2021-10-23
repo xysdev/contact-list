@@ -15,9 +15,9 @@ const ContactList = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getContacts());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     const selectTab = (tab) => {
-        debugger
         dispatch(setSelectedTab(tab));
     };
     const selectContact = (event, contact) => {
@@ -30,11 +30,11 @@ const ContactList = () => {
         <div className="d-flex">
             <div className="contact-list-container">
                 <ContactListHeader contacts={contacts} selectTab={selectTab} selectedTab={selectedTab} />
-                <ul className="contact-list p-4">
+                <ul className="contact-list">
                     {pending
                         ? new Array(10).fill("loading...").map((value,index) => {
                               return (
-                                  <li className="contact-list__item p-2" data-testid="loading-contacts" key={index}>
+                                  <li className="contact-list__item" data-testid="loading-contacts" key={index}>
                                       <Skeleton />
                                   </li>
                               );
