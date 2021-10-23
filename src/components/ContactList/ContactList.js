@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getContacts, setSelectedTab } from 'actions/contacts';
-import { useAppState, useDispatch } from 'context/context';
+import { getContacts, setSelectedTab } from 'store/actions/contacts';
+import { useAppState, useDispatch } from 'store/context/context';
 import ContactDetail from './ContactDetail/ContactDetail';
 import ContactListHeader from './ContactListHeader';
 import ContactListItem from './ContactListItem';
