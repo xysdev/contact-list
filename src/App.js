@@ -1,11 +1,11 @@
 import ContactList from "components/ContactList/ContactList";
-import { AppContextProvider } from "store/context/context";
+import { Provider } from "store/context/Provider";
 
 function App() {
   return (
-    <AppContextProvider>
+    <Provider>
       <ContactList />
-    </AppContextProvider>
+    </Provider>
   );
 }
 

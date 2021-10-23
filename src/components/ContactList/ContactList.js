@@ -1,18 +1,21 @@
+import { useAppDispatch } from 'hooks/useAppDispatch';
+import { useAppStore } from 'hooks/useAppStore';
 import { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import { getContacts, setSelectedTab } from 'store/actions/contacts';
-import { useAppState, useDispatch } from 'store/context/context';
+// import {  useDispatch } from 'store/context/context';
 import ContactDetail from './ContactDetail/ContactDetail';
 import ContactListHeader from './ContactListHeader';
 import ContactListItem from './ContactListItem';
 
+
 const ContactList = () => {
-    const { contacts, pending, selectedTab } = useAppState((state) => state.contacts);
+    const { contacts, pending, selectedTab } = useAppStore((state) => state.contacts);
     const [open, setOpen] = useState(false);
     const [selectedContact, setSelectedContact] = useState(false);
     const [modalStyle, setModalStyle] = useState({});
 
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     useEffect(() => {
         dispatch(getContacts());
         // eslint-disable-next-line react-hooks/exhaustive-deps
