@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
 import { getContacts, setSelectedTab } from 'store/actions/contacts';
 import { useAppState, useDispatch } from 'store/context/context';
 import ContactDetail from './ContactDetail/ContactDetail';
@@ -19,32 +20,36 @@ const ContactList = () => {
         dispatch(setSelectedTab(tab));
     };
     const selectContact = (event, contact) => {
-        debugger
         setOpen(true);
-        setModalStyle({ top: event.target.offsetTop+event.target.offsetHeight, left: event.target.offsetLeft, width: '500px' });
+        setModalStyle({ top: event.target.offsetTop + event.target.offsetHeight, left: event.target.offsetLeft, width: '500px' });
         setSelectedContact(contact);
     };
     return (
         <div className="d-flex">
             <div className="contact-list-container">
                 <ContactListHeader contacts={contacts} selectTab={selectTab} selectedTab={selectedTab} />
-                {pending ? (
-                        <span>loading...</span>
-                    ) : (
-                        <ul className="contact-list p-4">
-                            {contacts[selectedTab].map((contact) => {
-                                return (
-                                    <ContactListItem
-                                        contact={contact}
-                                        key={contact.id.value}
-                                        onClick={(event) => {
-                                            selectContact(event, contact);
-                                        }}
-                                    />
-                                );
-                            })}
-                        </ul>
-                    )}
+                <ul className="contact-list p-4">
+                    {pending
+                        ? new Array(10).fill("loading...").map(() => {
+                              return (
+                                  <li className="contact-list__item p-2">
+                                      <Skeleton />
+                                  </li>
+                              );
+                          })
+                        : contacts[selectedTab].map((contact) => {
+                              return (
+                                  <ContactListItem
+                                      contact={contact}
+                                      key={contact.id.value}
+                                      onClick={(event) => {
+                                          selectContact(event, contact);
+                                      }}
+                                  />
+                              );
+                          })}
+                </ul>
+
                 {/* <div className="contact-list-body">
                    
                 </div> */}

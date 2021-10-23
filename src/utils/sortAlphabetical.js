@@ -11,7 +11,7 @@ export const sortAlphabetical = (array) => {
     });
     Object.keys(result).forEach((index) => {
         result[index].sort(function (a, b) {
-            debugger
+
             if (a.name.last < b.name.last) {
                 return -1;
             }
