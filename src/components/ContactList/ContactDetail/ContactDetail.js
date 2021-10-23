@@ -7,7 +7,7 @@ const ContactDetail = ({ setOpen, contact, modalStyle }) => {
         setOpen(false);
     });
     return (
-        <div className="contact-detail" ref={contactDetail} style={modalStyle}>
+        <div className="contact-detail" ref={contactDetail} style={modalStyle} data-testid="contact-detail">
             <span
                 className="contact-detail__close-button"
                 onClick={() => {
@@ -18,7 +18,7 @@ const ContactDetail = ({ setOpen, contact, modalStyle }) => {
             </span>
             <div className="contact-detail__username-badge">username {contact.login.username}</div>
             <div>
-                <img className="contact-detail__Image " src={contact.picture.medium} alt="contact" />
+                <img className="contact-detail__Image " src={contact.picture.medium} alt="contact" data-testid="user-image"/>
             </div>
             <div>
                 <span className="contact-detail__full-name">{`${contact.name.last}, ${contact.name.first}`}</span>
