@@ -7,28 +7,19 @@ const AppContextUpdate = React.createContext();
 
 export const useAppState = (selector) => {
     //having the same use like redux useSelector hook
-    return useContext(AppContext).apply(null, [selector]);
+    // return useContext(AppContext).apply(null, [selector]);
+    return useContext(AppContext);
 };
 
 export const useDispatch = () => {
     return useContext(AppContextUpdate);
 };
 
-export const AppContextProvider = ({ children }) => {
+export const Provider = ({ children }) => {
     const [state, dispatch] = useAppReducer(rootReducer);
-    const getState = useCallback(
-        (selector) => {
-            return selector(state);
-        },
-        [state],
-    );
-
-    const setAppContext = (action) => {
-        return dispatch(action);
-    };
     return (
-        <AppContext.Provider value={getState}>
-            <AppContextUpdate.Provider value={setAppContext}>{children}</AppContextUpdate.Provider>
+        <AppContext.Provider value={state}>
+            <AppContextUpdate.Provider value={dispatch}>{children}</AppContextUpdate.Provider>
         </AppContext.Provider>
     );
 };
