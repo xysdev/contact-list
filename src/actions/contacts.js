@@ -1,6 +1,6 @@
-import { getContactsApi } from '../api/contactsApi';
-import { ACTIONS } from '../constants/actions';
-import { sortAlphabetical } from '../utils/sortAlphabetical';
+import { getContactsApi } from 'api/contactsApi';
+import { ACTIONS } from 'constants/actions';
+import { sortAlphabetical } from 'utils/sortAlphabetical';
 
 export const getContacts = () => {
     return async (dispatch) => {
