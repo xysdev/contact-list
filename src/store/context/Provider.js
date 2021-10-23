@@ -1,13 +1,11 @@
 import { useAppReducer } from 'hooks/useAppReducer';
 import { rootReducer } from 'store/reducers/root';
-import React, { useCallback, useContext } from 'react';
+import React, { useContext } from 'react';
 
 const AppContext = React.createContext();
 const AppContextUpdate = React.createContext();
 
-export const useAppState = (selector) => {
-    //having the same use like redux useSelector hook
-    // return useContext(AppContext).apply(null, [selector]);
+export const useAppState = () => {
     return useContext(AppContext);
 };
 
