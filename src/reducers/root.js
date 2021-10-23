@@ -1,4 +1,4 @@
-import { combineReducers } from '../context/combineReducers';
+import { combineReducers } from 'context/combineReducers';
 import contacts from './contacts';
 
 const reducers = {
