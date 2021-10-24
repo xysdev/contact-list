@@ -1,8 +1,8 @@
 .contact-detail {
     display: flex;
-    border: solid 1px #e0e0e0;
-    box-shadow: inset 0px 11px 8px -10px #ccc, inset 0px -11px 8px -10px #ccc;
-    background: #fff;
+    border: solid 1px $border-color;
+    @include shadow-bottom-and-top-inset(0.6);
+    background: $white;
     position: absolute;
     z-index: 99;
     border-radius: 5px;
@@ -12,7 +12,7 @@
         position: absolute;
         top: 10px;
         left: 5px;
-        color: #b1b1b1;
+        color: $secondary;
         cursor: pointer;
     }
     &__username-badge {
@@ -21,8 +21,8 @@
         right: 25px;
         z-index: 999;
         padding: 10px 5px;
-        background: red;
-        color: white;
+        @include gradient-linear(#dd5e32,#bf3b30,#cd4b44);
+        color: $white;
         writing-mode: vertical-rl;
         text-transform: uppercase;
         font-size: $cl-font-h5;
@@ -31,14 +31,14 @@
     }
     &__image {
         border-radius: 100%;
-        border: solid 3px #e0e0e0;
+        border: solid 3px $border-color;
         margin: 0 15px;
     }
     &__image-container {
         text-align: left;
     }
     &__full-name {
-        color: #b5b5b5;
+        color: $secondary;
         margin: 10px 0 20px 0;
         display: block;
         font-size: $cl-font-h3;
@@ -51,7 +51,7 @@
         }
     }
 }
-@media (max-width: 768px) {
+@media (max-width: map-get($breakpoints, md )) {
     .contact-detail {
         display: unset;
         top: 0 !important;

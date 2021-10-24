@@ -4,12 +4,16 @@ import { sortAlphabetical } from 'utils/sortAlphabetical';
 
 export const getContacts = () => {
     return async (dispatch) => {
-        // dispatch()
-        const contactsResult = await getContactsApi();
-        const contacts = sortAlphabetical(contactsResult.data.results);
-        const selectedTab = Object.keys(contacts).sort()[0];
-        dispatch(setSelectedTab(selectedTab));
-        dispatch(setContacts(contacts));
+        try {
+            const contactsResult = await getContactsApi();
+            const contacts = sortAlphabetical(contactsResult.data.results);
+            const selectedTab = Object.keys(contacts).sort()[0];
+            dispatch(setSelectedTab(selectedTab));
+            dispatch(setContacts(contacts));
+        } catch (error) {
+            ///TODO: add toast later
+            throw error;
+        }
     };
 };
 export const setSelectedTab = (selectedTab) => {
