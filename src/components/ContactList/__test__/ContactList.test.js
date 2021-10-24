@@ -1,18 +1,21 @@
 import { cleanup, render, fireEvent } from '@testing-library/react';
 import ContactList from './../ContactList';
-import { useAppState } from 'store/context/context';
+ import { useAppStore } from 'hooks/useAppStore';
 import { contacts } from './constants';
 
 afterEach(cleanup);
 
 const mockDispatch = jest.fn();
-jest.mock('store/context/context', () => ({
-    useAppState: jest.fn(),
-    useDispatch: () => mockDispatch,
+jest.mock('hooks/useAppStore', () => ({
+    useAppStore: jest.fn(),
+}));
+jest.mock('hooks/useAppDispatch', () => ({
+    useAppDispatch: () => mockDispatch,
 }));
 
+
 test('test rendering in initial state without error', () => {
-    useAppState.mockImplementation((selectorFn) => {
+    useAppStore.mockImplementation((selectorFn) => {
         return {
             contacts: {},
             pending: true,
@@ -24,7 +27,7 @@ test('test rendering in initial state without error', () => {
 });
 
 test('test rendering the component with data', () => {
-    useAppState.mockImplementation((selectorFn) => {
+    useAppStore.mockImplementation((selectorFn) => {
         return {
             contacts,
             pending: false,
@@ -37,7 +40,7 @@ test('test rendering the component with data', () => {
 
 
 test('clicking on the contacts ', () => {
-    useAppState.mockImplementation((selectorFn) => {
+    useAppStore.mockImplementation((selectorFn) => {
         return {
             contacts,
             pending: false,
