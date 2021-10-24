@@ -2,7 +2,9 @@
 
 The scope of this project is to create a simple contact list with [Random User API](https://randomuser.me/).<br/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br/>
+
+**Live Demo:** https://xysdev.github.io/contact-list
 
 ## **Table of Contents**
 
@@ -22,6 +24,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ✅ Context API With Thunk Pattern<br />
 ✅ [Flux Architecture](https://facebook.github.io/flux/docs/in-depth-overview/)<br />
 ✅ Unit Testing<br />
+✅ Responsive<br />
 ✅ Git CI/CD<br />
 ✅ Docker<br />
 ✅ [BEM](http://getbem.com/)<br />
